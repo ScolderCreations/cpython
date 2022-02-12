@@ -219,7 +219,7 @@ check_coding_spec(const char* line, Py_ssize_t size, struct tok_state *tok,
     if (!cs) {
         Py_ssize_t i;
         for (i = 0; i < size; i++) {
-            if (line[i] == '#' || line[i] == '\n' || line[i] == '\r')
+            if (line[i] == ';' || (line[i] == '/' && line[i+1] == '/') || line[i] == '\r')
                 break;
             if (line[i] != ' ' && line[i] != '\t' && line[i] != '\014') {
                 /* Stop checking coding spec after a line containing
